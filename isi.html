@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biodata – Menu Klik</title>
+  <style>
+    :root{
+      --line:#232323;
+      --bg:#f9fafb;
+      --card:#ffffff;
+      --accent:#2b6cb0;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui, Arial, sans-serif;
+      background:var(--bg);
+      color:#222;
+      padding:32px 16px;
+      display:flex; justify-content:center;
+    }
+    .wrap{
+      width:min(720px, 96vw);
+    }
+
+    /* judul */
+    .title{
+      text-align:center;
+      font-weight:800;
+      letter-spacing:.06em;
+      margin-bottom:24px;
+    }
+
+    /* item bar sesuai sketsa */
+    .item{
+      background:var(--card);
+      border:2px solid var(--line);
+      border-radius:12px;
+      padding:10px 14px;
+      margin:16px 0;
+      box-shadow:0 2px 0 var(--line);
+      cursor:pointer;
+      user-select:none;
+      transition:transform .08s ease, box-shadow .08s ease;
+    }
+    .item:active{
+      transform:translateY(2px);
+      box-shadow:0 0 0 var(--line);
+    }
+
+    .row{
+      display:flex; align-items:center; gap:14px;
+    }
+    .klik{
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .arrow{margin-left:2px}
+    .labelBox{
+      flex:1;
+      border:2px solid var(--line);
+      border-radius:8px;
+      padding:6px 10px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; letter-spacing:.02em;
+      min-height:38px;
+    }
+    .icon{
+      width:36px; height:36px;
+      display:grid; place-items:center;
+      border-left:2px solid var(--line);
+      padding-left:10px;
+      font-size:20px;
+    }
+
+    /* panel konten */
+    .panel{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+      padding:0 6px;
+    }
+    .panel-inner{
+      border-left:4px solid var(--accent);
+      background:#f1f5f9;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+      line-height:1.6;
+    }
+    .item.active + .panel{
+      /* nilai besar agar cukup tinggi; akan dipotong oleh overflow jika kurang */
+      max-height:280px;
+    }
+
+    /* tampilan kecil */
+    @media (max-width:520px){
+      .row{gap:10px}
+      .labelBox{font-size:15px}
+      .klik{font-size:14px}
+      .icon{width:32px;height:32px}
+    }
+
+    /* opsional: indikator aktif */
+    .item.active{border-color:var(--accent)}
+    .item.active .labelBox{border-color:var(--accent)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">PORTOFOLIO</h1>
+
+    <!-- 1. Data Pribadi -->
+    <div class="item" data-target="pribadi">
+      <div class="row">
+        <div class="klik"> <span class="arrow">→</span></div>
+        <div class="labelBox">Data Pribadi</div>
+        <div class="icon" aria-hidden="true">👤</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-pribadi">
+      <div class="panel-inner">
+        
+       <img src="latarmerah.jpg" width="150px"height="200px"><br/>
+        <b>Nama:</b> Satria Nazrul Guntara <br/>
+        <b>Tempat/Tgl Lahir:</b> Sumedang,15 Maret 2008 <br/>
+        <b>Agama:</b> Islam <br/>
+        <b>Jenis Kelamin:</b> Laki-laki<br/>
+        <b>Status dalam keluarga:</b> Anak ke 1 dari 3 bersaudara<br/>
+        <b>Alamat:</b> Dusun Gunung Puyuh RT01/RW11,Desa sukajaya,kec.sumedang selatan,kab.sumedang<br/>
+        <b>Kewarganegaraan:</b> Indonesia <br/>
+        <b>Hobi:</b>Olahraga <br/>
+        <b>Golongan Darah:</b> AB <br/>
+      </div>
+    </div>
+
+    <!-- 2. Kontak -->
+    <div class="item" data-target="kontak">
+      <div class="row">
+        <div class="klik"> <span class="arrow">→</span></div>
+        <div class="labelBox">Kontak</div>
+        <div class="icon" aria-hidden="true">✉️</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-kontak">
+      <div class="panel-inner">
+        <li>Email:</b> satrianazrulguntara@gmail.com <br/>
+          <img src="IMG-20260420-WA0032.jpg"width="80px" height="80px">
+        
+        <li>No. HP/WA:</b> 0815-4652-8604 <br/>
+          <img src="IMG-20260420-WA0031.jpg"width="80px" height="80px">
+      
+        <li>Media Sosial:</b> _satriaanzrl <br/>
+          <img src="IMG-20260420-WA0033.jpg"width="80px" height="80px">
+      </div>
+    </div>
+
+    <!-- 3. Pendidikan -->
+    <div class="item" data-target="pendidikan">
+      <div class="row">
+        <div class="klik"> <span class="arrow">→</span></div>
+        <div class="labelBox">Pendidikan</div>
+        <div class="icon" aria-hidden="true">🎓</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-pendidikan">
+      <div class="panel-inner">
+        <ul>
+          <li>SDN sukasirna 2 (tahun 2014-2020)</li>
+          <img src="IMG-20260420-WA0030.jpg"width="150px" height="150px">
+          
+          <li>SMPN 3 Sumedang(tahun 2020-2023)</li>
+          <img src="IMG-20260420-WA0029.jpg"width="150px" height="150px">
+          
+          <li>SMAN 3 Sumedang(tahun 2023-2026)</li>
+          <img src="IMG-20260420-WA0028.jpg"width="150px" height="150px">
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. Keahlian -->
+    <div class="item" data-target="keahlian">
+      <div class="row">
+        <div class="klik"> <span class="arrow">→</span></div>
+        <div class="labelBox">Keahlian</div>
+        <div class="icon" aria-hidden="true">🌀</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-keahlian">
+      <div class="panel-inner">
+        <ul>
+          <li>Kejuaraan</li>
+          <img src="IMG-20260420-WA0027.jpg"width="150px" height="150px">
+          
+          <li>Basket</li>
+          <img src="IMG-20260420-WA0026.jpg"width="150px" height="150px">
+          
+          <li>Silat</li>
+          <img src="IMG-20260420-WA0024.jpg"width="150px" height="150px">
+          
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. Cita-cita -->
+    <div class="item" data-target="citacita">
+      <div class="row">
+        <div class="klik"> <span class="arrow">→</span></div>
+        <div class="labelBox">Cita-Cita</div>
+        <div class="icon" aria-hidden="true">🧭</div>
+      </div>
+    </div>
+    <div class="panel" id="panel-citacita">
+      <div class="panel-inner">
+        <p>Menjadi TNI AD</p>
+        <img src="IMG-20260420-WA0035.jpg"width="200px" height="150px">
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Toggle buka/tutup panel saat item diklik
+    const items = document.querySelectorAll('.item');
+    items.forEach(item=>{
+      item.addEventListener('click', ()=>{
+        // tutup semua kecuali yang dipilih (seperti menu 1 terbuka)
+        items.forEach(i=>{
+          if(i!==item) i.classList.remove('active');
+        });
+        document.querySelectorAll('.panel').forEach(p=>{
+          if(!p.id.endsWith(item.dataset.target)) p.style.maxHeight = null;
+        });
+
+        // toggle yang aktif
+        item.classList.toggle('active');
+        const panel = document.querySelector('#panel-'+item.dataset.target);
+        if(item.classList.contains('active')){
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }else{
+          panel.style.maxHeight = null;
+        }
+      });
+    });
+
+    // Biar panel ikut tinggi kontennya saat window di-resize
+    window.addEventListener('resize', ()=>{
+      document.querySelectorAll('.item.active').forEach(item=>{
+        const panel = document.querySelector('#panel-'+item.dataset.target);
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      });
+    });
+  </script>
+  
+  
+</body>
+</html>
